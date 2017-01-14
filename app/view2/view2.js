@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute', 'ngMaterial'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/view2', {
@@ -10,50 +10,36 @@ angular.module('myApp.view2', ['ngRoute'])
         });
     }])
 
-    .controller('View2Ctrl', ["$http", function ($http) {
+    .controller('View2Ctrl', ["$http", "$mdToast", function ($http, $mdToast) {
         const vm = this;
-        vm.userInformation = {
-            introduction: "",
-            section1: "",
-            section2: "",
-            section3: "",
-            section4: ""
-        };
-        var userInformationEmpty = {
-            introduction: emptyValue,
-            section1: emptyValue,
-            section2: emptyValue,
-            section3: emptyValue,
-            section4: emptyValue
-        };
+        vm.userInformation = {};
 
-
-            if (user) {
-                $http.get(baseUrl).then(function getWithSuccess(response) {
-                    if (vm.userInformation !== null && vm.userInformation !== undefined) {
-                        vm.userInformation = response.data;
-                    }
-                    else {
-                        vm.userInformation = userInformationEmpty;
-                    }
-                }, function getWithError(response) {
-                    vm.userInformation = response
-                });
-
-                vm.updateInformation = function () {
-                    var userInformationToPost = vm.userInformation;
-                    $http({
-                        method: "PUT",
-                        url: "https://axeladministration.firebaseio.com/userInformation/-K_y8iguXuK3t4BEJEGu.json",
-                        data: userInformationToPost
-                    }).then(function updateWithSucces(response) {
-                            console.log(response)
-                        }, function RejectUpdate(response) {
-                            console.log(response.statusText);
-                        }
-                    )
-                }
+        /**
+         * Récuperation de l'objet information et affiche une notification en cas de succés ou d'erreur
+         */
+        $http.get(baseUrl).then(function getWithSuccess(response) {
+            if (vm.userInformation !== null && vm.userInformation !== undefined) {
+                vm.userInformation = response.data;
+                $mdToast.show($mdToast.simple().textContent(notificationMessage.success));
             }
+            else {
+                $mdToast.show($mdToast.simple().textContent(notificationMessage.empty));
+            }
+        }, function getWithError() {
+            $mdToast.show($mdToast.simple().textContent(notificationMessage.externalError));
+        });
 
+        /**
+         * Update les informations du formulaire et affiche une notifcation en cas de succés ou d'erreur
+         */
+        vm.updateInformation = function () {
+            var userInformationToPost = vm.userInformation;
+            $http.put(baseUrl, userInformationToPost).then(function updateWithSucces() {
+                    $mdToast.show($mdToast.simple().textContent(notificationMessage.updateSucces));
+                }, function RejectUpdate() {
+                    $mdToast.show($mdToast.simple().textContent(notificationMessage.externalError));
+                }
+            )
+        }
 
     }]);
