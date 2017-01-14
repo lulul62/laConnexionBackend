@@ -1,0 +1,42 @@
+<center>
+  <div ng-controller="View2Ctrl as vm">
+
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Edition des informations</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <form>
+        <div class="mdl-textfield mdl-js-textfield">
+         Introduction :  <textarea class="mdl-textfield__input" ng-model="vm.userInformation.introduction" type="text" rows= "1" id="sample5" ></textarea>
+          <label class="mdl-textfield__label"</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          Section 1 :  <textarea class="mdl-textfield__input" ng-model="vm.userInformation.section1" type="text" rows= "1" id="sample5" ></textarea>
+          <label class="mdl-textfield__label"</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          Section 2 :  <textarea class="mdl-textfield__input" ng-model="vm.userInformation.section2" type="text" rows= "1" id="sample5" ></textarea>
+          <label class="mdl-textfield__label"</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          Section 3 :  <textarea class="mdl-textfield__input" ng-model="vm.userInformation.section3" type="text" rows= "1" id="sample5" ></textarea>
+          <label class="mdl-textfield__label"</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          Section 4 :  <textarea class="mdl-textfield__input" ng-model="vm.userInformation.section4" type="text" rows= "1" id="sample5" ></textarea>
+          <label class="mdl-textfield__label"</label>
+        </div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a ng-click="vm.updateInformation()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Enregistrer les modifications
+      </a>
+    </div>
+    </form>
+  </div>
+
+</div>
+</center>
+
+
