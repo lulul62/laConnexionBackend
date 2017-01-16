@@ -3,15 +3,15 @@
     <center>
         <form class="container-material">
             <md-input-container>
-                <label>Titre du projet</label>
+                <label><i class="material-icons">title</i> Titre du projet</label>
                 <input type="text" ng-model="vm.newProject.title">
             </md-input-container>
             <md-input-container>
-                <label>Image de présentation</label>
+                <label><i class="material-icons">add_a_photo</i> Image de présentation</label>
                 <input type="text" ng-model="vm.newProject.image">
             </md-input-container>
-            <md-input-container class="md-block">
-                <label>Contenu du projet</label>
+            <md-input-container>
+                <label><i class="material-icons">textsms</i> Contenu du projet</label>
                 <input type="text" ng-model="vm.newProject.content">
             </md-input-container>
             <md-button class="md-primary" ng-click="vm.postNewProject()">Poster le projet</md-button>
@@ -35,7 +35,7 @@
                     <md-card-actions layout="row">
                         <md-button ng-click="vm.deleteProject(project)" class="md-icon-button"
                                    aria-label="Supprimer le projet">
-                            Supprimer le projet
+                           Supprimer le projet
                         </md-button>
                     </md-card-actions>
                 </md-card>

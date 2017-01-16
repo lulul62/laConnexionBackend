@@ -20,7 +20,6 @@ angular.module('myApp.login', ['ngRoute', 'ngMaterial'])
          */
         $http.get(baseUrlLogin).then(function checkValidationSuccess(response) {
             vm.dataToCheck = response.data;
-            console.log(vm.dataToCheck);
         }, function errorResponse() {
             $mdToast.show($mdToast.simple().textContent("Erreur interne"));
         });
@@ -29,7 +28,6 @@ angular.module('myApp.login', ['ngRoute', 'ngMaterial'])
          * Check si les informations du formulaire correspondent avec l'bjet récuperé en base
          */
         vm.checkUserInformation = function () {
-            console.log(vm.dataToCheck);
           if(vm.dataToCheck.username === vm.userToLog.username && vm.dataToCheck.password === vm.userToLog.password) {
               localStorage.setItem('isUserLogged', true);
               $mdToast.show($mdToast.simple().textContent("Bienvenue" + " " +  vm.userToLog.username + " !" ))

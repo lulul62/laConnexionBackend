@@ -14,7 +14,6 @@ angular.module('myApp.information', ['ngRoute', 'ngMaterial'])
         const vm = this;
         vm.userInformation = {};
         vm.userIsLogged = localStorage.getItem("isUserLogged");
-        console.log(vm.userIsLogged);
         if (vm.userIsLogged === null) {
             window.location.href = "http://localhost:8000/#!/login";
         }

@@ -46,7 +46,6 @@ angular.module('myApp.project', ['ngRoute'])
                     $http.post(baseProjectUrl, vm.dataToPost).then(function SuccessPost(response) {
                         vm.newProject.projectUrl = baseProjectUrlToPut + response.data.name + ".json";
                     }, function ErrorPost(response) {
-                        console.log(response);
                     }).then(function putprojectUrl() {
                         var urlToPut = vm.newProject.projectUrl;
                         var dataToPut = vm.newProject;
