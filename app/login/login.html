@@ -1,0 +1,19 @@
+<div ng-controller="LoginCtrl as vm">
+    <center>
+    <form class="container-login">
+        <md-input-container>
+            <label>Nom d'utilisateur</label>
+            <input type="text" ng-model="vm.userToLog.username">
+        </md-input-container>
+        </br>
+        <md-input-container>
+            <label>Mot de passe</label>
+            <input type="password" ng-model="vm.userToLog.password">
+        </md-input-container>
+        </br>
+        <md-input-container>
+        <md-button class="md-primary" ng-click="vm.checkUserInformation()">Connexion</md-button>
+        </md-input-container>
+    </form>
+    </center>
+</div>
