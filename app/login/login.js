@@ -32,7 +32,7 @@ angular.module('myApp.login', ['ngRoute', 'ngMaterial'])
               localStorage.setItem('isUserLogged', true);
               $mdToast.show($mdToast.simple().textContent("Bienvenue" + " " +  vm.userToLog.username + " !" ))
                   .then(function redirectUser() {
-                 window.location = "http://localhost:8000/#!/project";
+                 window.location = "https://la-connexion-admin.herokuapp.com/#!/project";
               });
           } else {
               $mdToast.show($mdToast.simple().textContent("Le login et le mot de passe ne correspondent pas"));
