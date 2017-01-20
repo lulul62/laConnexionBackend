@@ -16,7 +16,7 @@ angular.module('myApp.project', ['ngRoute'])
         vm.parsedProjectList = [];
         vm.userIsLogged = localStorage.getItem("isUserLogged");
         if (vm.userIsLogged === null) {
-            window.location.href = "http://localhost:8000/#!/login";
+            window.location.href = "https://la-connexion-admin.herokuapp.com/#!/login";
         }
         else {
             /**
